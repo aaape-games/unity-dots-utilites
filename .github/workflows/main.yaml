@@ -16,7 +16,7 @@ jobs:
         run: echo '${{ secrets.UNITY_LICENSE }}' | tr -d '\r' > /opt/Unity_v2020.x.ulf
         # assets need to be in an assets folder, unity will create a whole project around it
       - name: activate license
-        run: unity-editor -quit -batchmode -manualLicenseFile /opt/Unity_v2020.x.ulf -logfile - 
+        run: unity-editor -quit -batchmode -manualLicenseFile /opt/Unity_v2020.x.ulf -logfile - || true
         working-directory: Assets
       - name: pack package
         run: /opt/unity/Editor/Unity -batchmode  -nographics -quit  -projectPath .. -exportPackage "AAAPE" "ScriptTemplates" "./AAAPE-DOTS.unitypackage"  -logfile -
