@@ -13,10 +13,10 @@ jobs:
     steps: 
       - uses: actions/checkout@v2
       - name: write license file
-        run: printf '${{ secrets.UNITY_LICENSE }}' > /opt/Unity_v2020.x.ulf
+        run: echo '${{ secrets.UNITY_LICENSE }}' | tr -d '\r' > '' > /opt/Unity_v2020.x.ulf
         # assets need to be in an assets folder, unity will create a whole project around it
       - name: write license
-        run: unity-editor -quit -batchmode -manualLicenseFile /opt/Unity_v2021.x.ulf -logfile - || true
+        run: unity-editor -quit -batchmode -manualLicenseFile /opt/Unity_v2020.x.ulf -logfile - || true
         working-directory: Assets
       - name: pack package
         run: /opt/unity/Editor/Unity -batchmode  -nographics -quit  -projectPath .. -exportPackage "AAAPE" "ScriptTemplates" "./AAAPE-DOTS.unitypackage"  -logfile errors.log
