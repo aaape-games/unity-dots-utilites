@@ -19,7 +19,7 @@ jobs:
         run: unity-editor -quit -batchmode -manualLicenseFile /opt/Unity_v2020.x.ulf -logfile - || true
         working-directory: Assets
       - name: pack package
-        run: /opt/unity/Editor/Unity -batchmode  -nographics -quit  -projectPath .. -exportPackage "AAAPE" "ScriptTemplates" "./AAAPE-DOTS.unitypackage"  -logfile -
+        run: /opt/unity/Editor/Unity -batchmode  -nographics -quit  -projectPath .. -exportPackage "Assets/AAAPE" "Assets/ScriptTemplates" "./AAAPE-DOTS.unitypackage"  -logfile -
         working-directory: Assets
       - name: release
         uses: actions/create-release@v1
