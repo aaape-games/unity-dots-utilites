@@ -21,6 +21,9 @@ jobs:
       - name: pack package
         run: unity-editor -batchmode  -nographics -quit  -projectPath .. -exportPackage "Assets/AAAPE" "Assets/ScriptTemplates" "./AAAPE-DOTS.unitypackage"  -logfile -
         working-directory: Assets
+      - name: version
+        id: version
+        uses: paulhatch/semantic-version@v4.0.2
       - name: release
         uses: actions/create-release@v1
         id: DOTS
@@ -29,12 +32,12 @@ jobs:
         with:
           draft: false
           prerelease: false
-          release_name: ${{ github.sha }}
-          tag_name: ${{ github.sha }}
+          release_name: ${{ steps.version.outputs.version }}
+          tag_name: ${{ steps.version.outputs.version }}
       - name: upload linux artifact
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.release.outputs.upload_url }}
           asset_path: ./AAAPE-DOTS.unitypackage
-          asset_name: AAAPE-DOTS.${{ github.sha }}.unitypackage
+          asset_name: AAAPE-DOTS.${{ steps.version.outputs.version }}.unitypackage
           asset_content_type: application/octet-stream
