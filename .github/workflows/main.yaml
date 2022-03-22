@@ -27,6 +27,7 @@ jobs:
         id: version
         uses: paulhatch/semantic-version@v4.0.2
         with:
+          branch: master
           major_pattern: "MAJOR"
           minor_pattern: "MINOR"
           format: "${major}.${minor}.${patch}"
