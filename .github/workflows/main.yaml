@@ -7,8 +7,20 @@ on:
 jobs:
   package:
     runs-on: ubuntu-latest
-    container: unityci/editor:ubuntu-2020.3.5f1-base-0
+    #container: unityci/editor:ubuntu-2020.3.5f1-base-0
     steps: 
+      - name: install git
+        run: apt-get install git
+      - name: version
+        id: version
+        uses: paulhatch/semantic-version@v4.0.2
+        with:
+          branch: master
+          major_pattern: "MAJOR"
+          minor_pattern: "MINOR"
+          format: "${major}.${minor}.${patch}"
+          short_tags: true
+          bump_each_commit: true
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -23,16 +35,6 @@ jobs:
       - name: pack package
         run: unity-editor -batchmode  -nographics -quit  -projectPath .. -exportPackage "Assets/AAAPE" "Assets/ScriptTemplates" "./AAAPE-DOTS.unitypackage"  -logfile -
         working-directory: Assets
-      - name: version
-        id: version
-        uses: paulhatch/semantic-version@v4.0.2
-        with:
-          branch: master
-          major_pattern: "MAJOR"
-          minor_pattern: "MINOR"
-          format: "${major}.${minor}.${patch}"
-          short_tags: true
-          bump_each_commit: true
       - name: release
         uses: actions/create-release@v1
         id: release
