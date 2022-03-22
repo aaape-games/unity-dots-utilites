@@ -9,11 +9,11 @@ env:
 jobs:
   package:
     runs-on: ubuntu-latest
-    container: unityci/editor:ubuntu-2021.2.5f1-mac-mono-0
+    container: unityci/editor:ubuntu-2020.3.5f1-base-0
     steps: 
       - uses: actions/checkout@v2
       - name: write license file
-        run: printf '${{ secrets.UNITY_LICENSE }}' > /opt/Unity_v2021.x.ulf
+        run: printf '${{ secrets.UNITY_LICENSE }}' > /opt/Unity_v2020.x.ulf
         # assets need to be in an assets folder, unity will create a whole project around it
       - name: write license
         run: unity-editor -quit -batchmode -manualLicenseFile /opt/Unity_v2021.x.ulf -logfile - || true
