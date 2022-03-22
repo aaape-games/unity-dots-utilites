@@ -1,0 +1,13 @@
+{
+    "name": "com.aaape.dots",
+    "version": "0.1.0",
+    "displayName": "AAAPE DOTS Utilities",
+    "author": { 
+        "name" : "Alexis Peters",
+        "email" : "info@alexispeters.de",
+        "url" : "https://alexispeters.de"
+     },
+    "dependencies": {
+        "com.unity.entities": "0.17.0-preview.42"
+    }
+}
