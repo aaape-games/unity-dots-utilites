@@ -10,6 +10,8 @@ jobs:
     container: unityci/editor:ubuntu-2020.3.5f1-base-0
     steps: 
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: write manifest
         run: mkdir Packages && mv manifest.dist.json Packages/manifest.json
       - name: write license file
@@ -25,6 +27,10 @@ jobs:
         id: version
         uses: paulhatch/semantic-version@v4.0.2
         with:
+          major_pattern: "MAJOR"
+          minor_pattern: "MINOR"
+          format: "${major}.${minor}.${patch}"
+          short_tags: true
           bump_each_commit: true
       - name: release
         uses: actions/create-release@v1
