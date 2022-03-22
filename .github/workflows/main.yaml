@@ -47,6 +47,8 @@ jobs:
           tag_name: ${{ steps.version.outputs.version }}
       - name: upload linux artifact
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.release.outputs.upload_url }}
           asset_path: ./AAAPE-DOTS.unitypackage
