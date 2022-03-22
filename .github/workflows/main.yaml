@@ -30,7 +30,7 @@ jobs:
           draft: false
           prerelease: false
           release_name: ${{ github.sha }}
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ github.sha }}
       - name: upload linux artifact
         uses: actions/upload-release-asset@v1
         with:
