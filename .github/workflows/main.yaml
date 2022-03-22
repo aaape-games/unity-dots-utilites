@@ -24,9 +24,11 @@ jobs:
       - name: version
         id: version
         uses: paulhatch/semantic-version@v4.0.2
+        with:
+          bump_each_commit: true
       - name: release
         uses: actions/create-release@v1
-        id: DOTS
+        id: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
