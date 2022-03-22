@@ -1,0 +1,38 @@
+name: Build package
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - release
+env: 
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    container: unityci/editor:ubuntu-2021.2.5f1-mac-mono-0
+    steps: 
+      - uses: actions/checkout@v2
+      - name: write license file
+        run: printf '${{ secrets.UNITY_LICENSE }}' > /opt/Unity_v2021.x.ulf
+        # assets need to be in an assets folder, unity will create a whole project around it
+      - name: write license
+        run: unity-editor -quit -batchmode -manualLicenseFile /opt/Unity_v2021.x.ulf -logfile - || true
+        working-directory: Assets
+      - name: pack package
+        run: /opt/unity/Editor/Unity -batchmode  -nographics -quit  -projectPath .. -exportPackage "AAAPE" "ScriptTemplates" "./AAAPE-DOTS.unitypackage"  -logfile errors.log
+        working-directory: Assets
+      - name: release
+        uses: actions/create-release@v1
+        id: DOTS
+        with:
+          draft: false
+          prerelease: false
+          release_name: ${{ steps.version.outputs.version }}
+          tag_name: ${{ github.ref }}
+      - name: upload linux artifact
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./AAAPE-DOTS.unitypackage
+          asset_name: AAAPE-DOTS.${{ steps.version.outputs.version }}.unitypackage
+          asset_content_type: application/octet-stream
