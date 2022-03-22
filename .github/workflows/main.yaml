@@ -10,6 +10,8 @@ jobs:
     container: unityci/editor:ubuntu-2020.3.5f1-base-0
     steps: 
       - uses: actions/checkout@v2
+      - name: write manifest
+        run: mkdir Packages && mv manifest.dist.json Packages/manifest.json
       - name: write license file
         run: echo '${{ secrets.UNITY_LICENSE }}' | tr -d '\r' > /opt/Unity_v2020.x.ulf
         # assets need to be in an assets folder, unity will create a whole project around it
