@@ -10,8 +10,11 @@ jobs:
     container: unityci/editor:ubuntu-2020.3.5f1-base-0
     steps: 
       - name: install git
-        run: apt-get install software-properties-common && add-apt-repository ppa:git-core/ppa -y && apt-get update && apt-get install git -y
-      - name: version
+        run: apt-get install software-properties-common -y && add-apt-repository ppa:git-core/ppa -y && apt-get update && apt-get install git -y
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+        - name: version
         id: version
         uses: paulhatch/semantic-version@v4.0.2
         with:
@@ -21,9 +24,6 @@ jobs:
           format: "${major}.${minor}.${patch}"
           short_tags: true
           bump_each_commit: true
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: write manifest
         run: mkdir Packages && mv manifest.dist.json Packages/manifest.json
       - name: write license file
