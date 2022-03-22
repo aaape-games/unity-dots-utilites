@@ -29,12 +29,12 @@ jobs:
         with:
           draft: false
           prerelease: false
-          release_name: ${{ steps.version.outputs.version }}
+          release_name: ${{ github.sha }}
           tag_name: ${{ github.ref }}
       - name: upload linux artifact
         uses: actions/upload-release-asset@v1
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          upload_url: ${{ steps.release.outputs.upload_url }}
           asset_path: ./AAAPE-DOTS.unitypackage
-          asset_name: AAAPE-DOTS.${{ steps.version.outputs.version }}.unitypackage
+          asset_name: AAAPE-DOTS.${{ github.sha }}.unitypackage
           asset_content_type: application/octet-stream
