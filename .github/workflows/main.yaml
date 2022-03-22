@@ -10,7 +10,7 @@ jobs:
     container: unityci/editor:ubuntu-2020.3.5f1-base-0
     steps: 
       - name: install git
-        run: apt-get install git
+        run: apt-get install software-properties-common && add-apt-repository ppa:git-core/ppa -y && apt-get update && apt-get install git -y
       - name: version
         id: version
         uses: paulhatch/semantic-version@v4.0.2
