@@ -1,0 +1,13 @@
+*
+
+!.gitignore
+!package.json
+!manifest.dist.json
+
+!/.github
+!/.github/**
+!/.github/workflows/*.yaml
+
+!/Assets*
+!/Assets/AAAPE**
+!/Assets/ScriptTemplates**

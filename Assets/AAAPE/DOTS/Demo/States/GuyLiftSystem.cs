@@ -6,17 +6,16 @@ using UnityEngine;
 namespace AAAPE.DOTS.StateDemo
 {
 
-    public class GuyLiftSystem : SystemBase
-    {
-        private Camera cam;
-        protected override void OnCreate()
+        public class GuyLiftSystem : SystemBase
         {
-            // this is a gamestate
-            GameState.RequireForUpdate<NoGravityFlag>(this);
-            // you could also use 
-            // RequireSingletonForUpdate<LevelStartedFlag>();
-            // which is doing the same
-        }
+            protected override void OnCreate()
+            {
+                // this is a gamestate
+                GameState.RequireForUpdate<NoGravityFlag>(this);
+                // you could also use 
+                // RequireSingletonForUpdate<LevelStartedFlag>();
+                // which is doing the same
+            }
 
         // this is only ran when the levelStartedFlag exists somewhere
         protected override void OnUpdate()
