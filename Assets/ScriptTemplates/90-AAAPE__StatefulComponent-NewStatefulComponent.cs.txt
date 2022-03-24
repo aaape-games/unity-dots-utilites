@@ -1,0 +1,21 @@
+using Unity.Entities;
+using AAAPE.DOTS;
+
+[GenerateAuthoringComponent]
+public struct #SCRIPTNAME# : StatefulComponent<#SCRIPTNAME#State, #SCRIPTNAME#States>
+{
+    public #SCRIPTNAME#State state;
+    #SCRIPTNAME#State StatefulComponent<#SCRIPTNAME#State, #SCRIPTNAME#States>.State { get => state; set => state =value; }
+}
+
+[System.Serializable]
+public struct #SCRIPTNAME#State: State<#SCRIPTNAME#States>{
+    public #SCRIPTNAME#States Value;
+}
+
+public enum #SCRIPTNAME#States {
+    IDLE = 0,
+}
+
+public class Init#SCRIPTNAME#StateSystem: InitStatefulComponentSystem<#SCRIPTNAME#, #SCRIPTNAME#State, #SCRIPTNAME#States>{}
+public class Update#SCRIPTNAME#StateSystem: UpdateStatefulComponentSystem<#SCRIPTNAME#, #SCRIPTNAME#State, #SCRIPTNAME#States>{}
