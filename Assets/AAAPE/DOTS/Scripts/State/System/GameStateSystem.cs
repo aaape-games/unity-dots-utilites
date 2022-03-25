@@ -26,6 +26,7 @@ namespace AAAPE.DOTS {
         
         protected override void OnCreate() {
             gameStateEntity = EntityManager.CreateEntity();  
+            EntityManager.Instantiate(gameStateEntity);
         } 
 
         protected override void OnUpdate()
