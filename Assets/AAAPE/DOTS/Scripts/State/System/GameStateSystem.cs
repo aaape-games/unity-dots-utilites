@@ -12,7 +12,7 @@ namespace AAAPE.DOTS {
         }
 
         public void ToggleComponent<T>() {
-            if(EntityManager.HasComponent<T>(this.gameStateEntity)) {
+            if(this.gameStateEntity != null && EntityManager.HasComponent<T>(this.gameStateEntity)) {
                 this.RemoveComponent<T>();
             } else {
                 this.AddComponent<T>();
