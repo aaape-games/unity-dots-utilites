@@ -1,7 +1,7 @@
 using Unity.Entities;
 using Unity.Mathematics;
 
-namespace AAAPE.DOTS.StateDemo
+namespace AAAPE.DOTS.Demo
 {
 
     [GenerateAuthoringComponent]
@@ -10,5 +10,9 @@ namespace AAAPE.DOTS.StateDemo
         public float3 Position;
 
         public float Speed;
+
+        public bool Reached(float3 dest) {
+           return math.all(this.Position == dest);
+        }   
     }
 }

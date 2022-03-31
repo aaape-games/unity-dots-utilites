@@ -22,11 +22,21 @@ namespace AAAPE.DOTS
             systemBase.RequireSingletonForUpdate<TSystemFlag>();
         }
 
-        public static void SetFlag<T>() {
+        public static void RequireForUpdate(ComponentSystemBase systemBase, EntityQuery query)
+        {
+            systemBase.RequireForUpdate(query);
+        }
+
+        public static void SetFlag<T>() where T : struct, IComponentData {
             getSystem().AddComponent<T>();
         }       
          
-        public static void ToggleFlag<T>() {
+
+        public static void UnsetFlag<T>() where T : struct, IComponentData {
+            getSystem().RemoveComponent<T>();
+        }       
+         
+        public static void ToggleFlag<T>() where T : struct, IComponentData {
             getSystem().ToggleComponent<T>();
         }
     }

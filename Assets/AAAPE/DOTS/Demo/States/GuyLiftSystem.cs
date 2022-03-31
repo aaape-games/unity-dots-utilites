@@ -3,30 +3,19 @@ using Unity.Transforms;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace AAAPE.DOTS.StateDemo
+namespace AAAPE.DOTS.Demo
 {
-
-        public class GuyLiftSystem : SystemBase
-        {
-            protected override void OnCreate()
-            {
-                // this is a gamestate
-                GameState.RequireForUpdate<NoGravityFlag>(this);
-                // you could also use 
-                // RequireSingletonForUpdate<LevelStartedFlag>();
-                // which is doing the same
-            }
-
-        // this is only ran when the levelStartedFlag exists somewhere
+    // this is only ran when the NoGravityFlag exists somewhere
+    [WithGameFlag(typeof(NoGravityFlag))]
+    public class GuyLiftSystem : EcsSystem
+    {
         protected override void OnUpdate()
         {
             float DeltaTime = Time.DeltaTime;
-
             Entities
-                .WithAll<Guy>()
                 .ForEach((ref Translation translation) =>
                 {
-                    translation.Value += new float3(0, DeltaTime , 0);
+                    translation.Value += new float3(0, DeltaTime, 0);
                 }).ScheduleParallel();
         }
     }

@@ -6,7 +6,8 @@
         "Unity.Entities.Hybrid",
         "Unity.Jobs",
         "Unity.Burst",
-        "Unity.Collections"
+        "Unity.Collections",
+        "Unity.Mathematics"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,23 +1,12 @@
 using Unity.Entities;
 using Unity.Transforms;
 using Unity.Mathematics;
-using UnityEngine;
 
-namespace AAAPE.DOTS.StateDemo
+namespace AAAPE.DOTS.Demo
 {
-
-    public class GuyRotateSystem : SystemBase
+    [WithGameFlag(typeof(LevelStartedFlag))]
+    public class GuyRotateSystem : EcsSystem
     {
-        private Camera cam;
-        protected override void OnCreate()
-        {
-            // this is a gamestate
-            GameState.RequireForUpdate<LevelStartedFlag>(this);
-            // you could also use 
-            // RequireSingletonForUpdate<LevelStartedFlag>();
-            // which is doing the same
-        }
-
         // this is only ran when the levelStartedFlag exists somewhere
         protected override void OnUpdate()
         {

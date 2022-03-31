@@ -1,17 +1,25 @@
 using Unity.Entities;
 using Unity.Collections;
+using System;
 
-namespace AAAPE.DOTS {
-    public abstract class EcsSysten : SystemBase {
-        protected abstract void Flop();
-        protected void BeforeUpdate(){}
-        protected void AfterUpdate(){}
-
-        protected override void OnUpdate()
+namespace AAAPE.DOTS
+{
+    public abstract class EcsSystem : SystemBase
+    {
+        protected override void OnCreate()
         {
-           BeforeUpdate();
-           Flop();
-           AfterUpdate();
+            base.OnCreate();
+            foreach (object attr in this.GetType().GetCustomAttributes(true))
+            {
+                if (attr is WithGameFlagAttribute)
+                {
+                    GameState.RequireForUpdate(this, World.EntityManager.CreateEntityQuery(
+                        ((WithGameFlagAttribute)attr).Flag
+                    ));
+                }
+
+            }
         }
+
     }
 }
