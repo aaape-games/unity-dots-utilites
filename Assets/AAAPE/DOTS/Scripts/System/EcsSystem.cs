@@ -14,7 +14,7 @@ namespace AAAPE.DOTS
                 if (attr is WithGameFlagAttribute)
                 {
                     GameState.RequireForUpdate(this, World.EntityManager.CreateEntityQuery(
-                        ((WithGameFlagAttribute)attr).Flag
+                        ComponentType.ReadOnly(((WithGameFlagAttribute)attr).Flag)
                     ));
                 }
 

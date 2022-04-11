@@ -12,6 +12,32 @@ namespace AAAPE.DOTS.Demo {
     [System.Serializable]
     public struct GuyState: State<GuyStates>{
         public GuyStates Value;
+
+        public GuyState(GuyStates state) {
+            this.Value = state;
+        }
+
+        #region overriding Equals for EVEN FASTER comparison in query filtering
+                public override bool Equals(object obj)
+                {
+                    if(!(obj is GuyState)) {
+                        return false;
+                    }
+
+                    return ((GuyState)obj).Value == this.Value;
+                }
+                
+                // override object.GetHashCode
+                public override int GetHashCode()
+                {
+                    return Value.GetHashCode();
+                }
+
+        #endregion
+
+        public static StateChangeAction<GuyState, GuyStates> Action (GuyStates stateValue, Entity e) {
+            return new StateChangeAction<GuyState, GuyStates>(new GuyState{Value=stateValue}, e);
+        }
     }
     
     public enum GuyStates {
@@ -21,5 +47,5 @@ namespace AAAPE.DOTS.Demo {
     }
 
     public class InitGuyStateSystem: InitStatefulComponentSystem<Guy, GuyState, GuyStates>{}
-    public class UpdateGuyStateSystem: UpdateStatefulComponentSystem<Guy, GuyState, GuyStates>{}
+    //public class UpdateGuyStateSystem: UpdateStatefulComponentSystem<Guy, GuyState, GuyStates>{}
 }

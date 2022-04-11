@@ -21,22 +21,28 @@ namespace AAAPE.DOTS.Demo
         {
             float DeltaTime = Time.DeltaTime;
 
-            NativeArray< Unity.Mathematics.Random > randoms = randomSystem.Randoms;
 
-            Entities
+            NativeArray< Unity.Mathematics.Random > randoms = randomSystem.Randoms;
+           
+            NativeQueue<StateChangeAction<GuyState, GuyStates>> queue = new NativeQueue<StateChangeAction<GuyState, GuyStates>>(Allocator.TempJob);
+            NativeQueue<StateChangeAction<GuyState, GuyStates>>.ParallelWriter writer = queue.AsParallelWriter();
+
+            Dependency = Entities
                 .WithAll<Guy>()
                 .WithNativeDisableParallelForRestriction(randoms)
                 .WithSharedComponentFilter(new GuyState { Value = GuyStates.IDLE })
-                .ForEach((int nativeThreadIndex, ref MoveTo moveTo, ref Guy guy, in Translation translation, in FindRandomPosition position) =>
+                .ForEach((int entityInQueryIndex, Entity e, int nativeThreadIndex, ref MoveTo moveTo, in Translation translation, in FindRandomPosition position) =>
                 {
                     Unity.Mathematics.Random random = randoms[nativeThreadIndex];
                     moveTo.Position = random.NextFloat3(
                         position.Min,
                         position.Max
                     );
-                    guy.state = new GuyState{Value =GuyStates.WALKING};
+                    writer.Enqueue(GuyState.Action(GuyStates.WALKING, e));
                     randoms[nativeThreadIndex] = random;
-                }).ScheduleParallel();
+                })
+                .ScheduleParallel(Dependency)
+                .WithStateChange(queue, EntityManager);
         }
     }
 }

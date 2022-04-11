@@ -14,15 +14,9 @@ namespace AAAPE.DOTS.Demo {
 
         private int AmountUnits = 0;
 
-        public int UnitsX = 200;
-
-        public int UnitsY = 200;
-
-        public int Gap = 2;
-
         public Text text;
 
-        public bool isAddOnePerFrame = false;
+        private bool isAddOnePerFrame = false;
 
         public void ToggleOnePerFrame() {
             isAddOnePerFrame = !isAddOnePerFrame;
@@ -30,19 +24,22 @@ namespace AAAPE.DOTS.Demo {
 
         public void Update() {
             if(isAddOnePerFrame) {
-                Spawn(1);
+                Spawn(10);
             }            
         }
 
         public void Spawn(int Amount) {
-
+            Unity.Mathematics.Random random = new Unity.Mathematics.Random( (uint)new System.Random().Next());
             for(int i = 0; i < Amount; i++) {
                 Entity entity = GameObjectConversionUtility.ConvertGameObjectHierarchy(prefab, this.settings);
-                int x = AmountUnits % UnitsY;
-                int y = AmountUnits / UnitsX;
                 manager.AddComponentData<Translation>(entity, new Translation{
-                    Value = new float3(x * Gap, 0, y * Gap)
+                    Value = new float3(random.NextFloat(0,800f), 0, random.NextFloat(0,800f))
                 });
+
+                if(i % 2 == 0) {
+                    manager.SetComponentData<Guy>(entity, new Guy{state = new GuyState(GuyStates.STOP)});
+                }
+
                 manager.Instantiate(entity);
                 AmountUnits ++;
                 this.text.text = AmountUnits.ToString() + " Units";

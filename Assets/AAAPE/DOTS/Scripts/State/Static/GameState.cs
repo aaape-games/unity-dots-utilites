@@ -10,6 +10,9 @@ namespace AAAPE.DOTS
 
         private static GameStateSystem getSystem()
         {
+# if UNITY_EDITOR
+            return World.DefaultGameObjectInjectionWorld.GetExistingSystem<GameStateSystem>();
+#endif
             if (system == null)
             {
                 system = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<GameStateSystem>();

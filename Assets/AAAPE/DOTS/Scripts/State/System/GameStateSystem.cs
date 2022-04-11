@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace AAAPE.DOTS {
+
+    [UpdateInGroup(typeof(InitializationSystemGroup))]
     public class GameStateSystem : SystemBase {
         public enum TaskAction {
             ADD = 0,
@@ -18,8 +20,6 @@ namespace AAAPE.DOTS {
         }
 
         private Entity gameStateEntity;
-
-        private EntityManager defaultEntityManager;
 
         private Queue<ComponentTask> tasks;
 
@@ -58,7 +58,6 @@ namespace AAAPE.DOTS {
             this.tasks = new Queue<ComponentTask>();
             gameStateEntity = EntityManager.CreateEntity();  
             EntityManager.Instantiate(gameStateEntity);
-            defaultEntityManager = EntityManager;
         } 
 
         protected override void OnUpdate()
@@ -80,7 +79,8 @@ namespace AAAPE.DOTS {
             }
         }
 
-        protected override void OnDestroy() {
+        protected override void OnDestroy()
+        {
             this.tasks.Clear();
         }
     }

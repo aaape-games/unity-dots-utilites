@@ -14,5 +14,16 @@ namespace AAAPE.DOTS.Demo
         public bool Reached(float3 dest) {
            return math.all(this.Position == dest);
         }   
+        public float3 Destination(float3 current) {
+            return this.Position - current;
+        }
+
+        public float3 Destination2D(float3 current) {
+            return this.Position - new float3{
+                x = current.x,
+                y = this.Position.y,
+                z = current.z
+            };
+        }
     }
 }

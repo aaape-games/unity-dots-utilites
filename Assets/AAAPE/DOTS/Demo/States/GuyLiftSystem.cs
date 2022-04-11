@@ -13,6 +13,7 @@ namespace AAAPE.DOTS.Demo
         {
             float DeltaTime = Time.DeltaTime;
             Entities
+                .WithAll<Guy>()
                 .ForEach((ref Translation translation) =>
                 {
                     translation.Value += new float3(0, DeltaTime, 0);

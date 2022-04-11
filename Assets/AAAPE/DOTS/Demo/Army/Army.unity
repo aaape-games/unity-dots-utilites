@@ -747,12 +747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2b606075e634e1bb6de0156b13d4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3088245020687892535, guid: dcd015aef11f5499489aba5a7f3b5bb6, type: 3}
-  UnitsX: 200
-  UnitsY: 200
-  Gap: 5
+  prefab: {fileID: 3183910216694411515, guid: d2c12953bf3c14f139137a2f02186e91, type: 3}
   text: {fileID: 1879518882}
-  isAddOnePerFrame: 0
 --- !u!4 &1158521032
 Transform:
   m_ObjectHideFlags: 0
@@ -951,7 +947,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 2160, y: 3840}
+  m_ReferenceResolution: {x: 3840, y: 2160}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1401,7 +1397,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 84
+  field of view: 53
   orthographic: 0
   orthographic size: 5
   m_Depth: -1

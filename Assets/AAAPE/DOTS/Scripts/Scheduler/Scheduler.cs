@@ -30,5 +30,7 @@ namespace AAAPE.DOTS {
         public EntityCommandBuffer.ParallelWriter ScheduleParallel() {
             return this.buffer.AsParallelWriter();
         }
+
+        
     }
 }
