@@ -11,6 +11,8 @@ jobs:
     steps: 
       - name: install git
         run: apt-get install software-properties-common -y && add-apt-repository ppa:git-core/ppa -y && apt-get update && apt-get install git -y
+      - name: set security permission
+        run: git config --global --add safe.directory /__w/unity-dots-utilites/unity-dots-utilites
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
