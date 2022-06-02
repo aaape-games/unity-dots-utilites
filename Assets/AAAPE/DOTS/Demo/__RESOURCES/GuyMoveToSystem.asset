@@ -1,0 +1,478 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e47f74f8807144bbc73c11220e654a, type: 3}
+  m_Name: GuyMoveToSystem
+  m_EditorClassIdentifier: 
+  m_GraphModel:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: VSGraphModel, ns: DotsStencil, asm: Unity.VisualScripting.Ecs.Editor}
+      data:
+        m_AssetModel: {fileID: 11400000}
+        m_GraphNodeModels:
+        - id: 1
+        - id: 2
+        - id: 3
+        - id: 4
+        m_EdgeModels: []
+        m_GraphEdgeModels:
+        - id: 5
+        - id: 6
+        m_StickyNoteModels: []
+        m_GraphStickyNoteModels: []
+        m_PlacematModels: []
+        m_GraphPlacematModels: []
+        m_GraphVariableModels:
+        - id: 7
+        - id: 8
+        m_GraphPortalModels: []
+        m_Stencil:
+          id: 9
+        m_Name: GuyMoveToSystem
+    00000001:
+      type: {class: GetComponentNodeModel, ns: DotsStencil, asm: Unity.VisualScripting.Ecs.Editor}
+      data:
+        m_Guid:
+          m_Value0: 10830868549301214129
+          m_Value1: 690856756838795423
+        m_GraphAssetModel: {fileID: 11400000}
+        m_Position: {x: 130, y: 289.5}
+        m_Color: {r: 0.776, g: 0.443, b: 0, a: 0.5}
+        m_HasUserColor: 0
+        m_Title: GetComponentNodeModel
+        m_InputConstantKeys: []
+        m_InputConstants: []
+        m_State: 0
+        m_Node:
+          id: 10
+    00000002:
+      type: {class: SetComponentNodeModel, ns: DotsStencil, asm: Unity.VisualScripting.Ecs.Editor}
+      data:
+        m_Guid:
+          m_Value0: 14214437248076838023
+          m_Value1: 12124158542638374532
+        m_GraphAssetModel: {fileID: 11400000}
+        m_Position: {x: 473, y: 85.5}
+        m_Color: {r: 0.776, g: 0.443, b: 0, a: 0.5}
+        m_HasUserColor: 0
+        m_Title: SetComponentNodeModel
+        m_InputConstantKeys: []
+        m_InputConstants: []
+        m_State: 0
+        m_Node:
+          id: 11
+    00000003:
+      type: {class: GenericDotsNodeModel, ns: DotsStencil, asm: Unity.VisualScripting.Ecs.Editor}
+      data:
+        m_Guid:
+          m_Value0: 4991904371403199245
+          m_Value1: 13126287599235022258
+        m_GraphAssetModel: {fileID: 11400000}
+        m_Position: {x: -107.99999, y: 136}
+        m_Color: {r: 0.776, g: 0.443, b: 0, a: 0.5}
+        m_HasUserColor: 0
+        m_Title: This
+        m_InputConstantKeys: []
+        m_InputConstants: []
+        m_State: 0
+        m_Node:
+          id: 12
+    00000004:
+      type: {class: GenericDotsNodeModel, ns: DotsStencil, asm: Unity.VisualScripting.Ecs.Editor}
+      data:
+        m_Guid:
+          m_Value0: 4920167380910079944
+          m_Value1: 6310919873235877552
+        m_GraphAssetModel: {fileID: 11400000}
+        m_Position: {x: 184.02586, y: 171.85887}
+        m_Color: {r: 0.776, g: 0.443, b: 0, a: 0.5}
+        m_HasUserColor: 0
+        m_Title: If
+        m_InputConstantKeys:
+        - Condition_0
+        m_InputConstants:
+        - id: 13
+        m_State: 0
+        m_Node:
+          id: 14
+    00000005:
+      type: {class: EdgeModel, ns: UnityEditor.GraphToolsFoundation.Overdrive.BasicModel, asm: Unity.GraphTools.Foundation.Overdrive.Editor}
+      data:
+        m_GraphAssetModel: {fileID: 11400000}
+        m_FromPortReference:
+          NodeModelGuid:
+            m_Value0: 4991904371403199245
+            m_Value1: 13126287599235022258
+          GraphAssetModel: {fileID: 11400000}
+          UniqueId: ThisPort_0
+        m_ToPortReference:
+          NodeModelGuid:
+            m_Value0: 10830868549301214129
+            m_Value1: 690856756838795423
+          GraphAssetModel: {fileID: 11400000}
+          UniqueId: Game Object
+        m_EdgeControlPoints: []
+        m_EditMode: 0
+        m_EdgeLabel: 
+        m_Guid:
+          m_Value0: 18396092149489233501
+          m_Value1: 16825615551170330500
+    00000006:
+      type: {class: EdgeModel, ns: UnityEditor.GraphToolsFoundation.Overdrive.BasicModel, asm: Unity.GraphTools.Foundation.Overdrive.Editor}
+      data:
+        m_GraphAssetModel: {fileID: 11400000}
+        m_FromPortReference:
+          NodeModelGuid:
+            m_Value0: 10830868549301214129
+            m_Value1: 690856756838795423
+          GraphAssetModel: {fileID: 11400000}
+          UniqueId: Position
+        m_ToPortReference:
+          NodeModelGuid:
+            m_Value0: 14214437248076838023
+            m_Value1: 12124158542638374532
+          GraphAssetModel: {fileID: 11400000}
+          UniqueId: Value
+        m_EdgeControlPoints: []
+        m_EditMode: 0
+        m_EdgeLabel: 
+        m_Guid:
+          m_Value0: 3045520109860834804
+          m_Value1: 17645885510351758233
+    00000007:
+      type: {class: VariableDeclarationModel, ns: UnityEditor.GraphToolsFoundation.Overdrive.BasicModel, asm: Unity.GraphTools.Foundation.Overdrive.Editor}
+      data:
+        m_Name: output trigger
+        m_DataType:
+          Identification: __EXECUTIONFLOW
+        m_VariableType: 0
+        m_IsExposed: 1
+        m_Tooltip: 
+        m_InitializationValue:
+          id: 15
+        m_Modifiers: 2
+        variableFlags: 0
+        m_AssetModel: {fileID: 11400000}
+        m_Guid:
+          m_Value0: 9603412234769170884
+          m_Value1: 8716159250155691421
+        m_Id: 
+        m_MetadataModel:
+          id: 15
+    00000008:
+      type: {class: VariableDeclarationModel, ns: UnityEditor.GraphToolsFoundation.Overdrive.BasicModel, asm: Unity.GraphTools.Foundation.Overdrive.Editor}
+      data:
+        m_Name: input trigger
+        m_DataType:
+          Identification: __EXECUTIONFLOW
+        m_VariableType: 0
+        m_IsExposed: 1
+        m_Tooltip: 
+        m_InitializationValue:
+          id: 15
+        m_Modifiers: 1
+        variableFlags: 0
+        m_AssetModel: {fileID: 11400000}
+        m_Guid:
+          m_Value0: 17025178838781607074
+          m_Value1: 2570892080405424280
+        m_Id: 
+        m_MetadataModel:
+          id: 15
+    00000009:
+      type: {class: DotsStencil, ns: DotsStencil, asm: Unity.VisualScripting.Ecs.Editor}
+      data:
+        CompiledScriptingGraphAsset: {fileID: 7416378070971015005}
+        Type: 0
+    0000000A:
+      type: {class: GetComponent, ns: Runtime, asm: Unity.VisualScripting.Ecs}
+      data:
+        GameObject:
+          Port:
+            Index: 1
+        m_ComponentType:
+          TypeHash: 5765262605763603146
+        ComponentData:
+          Port:
+            Index: 2
+          DataCount: 2
+    0000000B:
+      type: {class: SetComponent, ns: Runtime, asm: Unity.VisualScripting.Ecs}
+      data:
+        Set:
+          Port:
+            Index: 4
+        OnSet:
+          Port:
+            Index: 5
+        GameObject:
+          Port:
+            Index: 6
+        m_ComponentType:
+          TypeHash: 11830366659655493054
+        ComponentData:
+          Port:
+            Index: 7
+          DataCount: 1
+    0000000C:
+      type: {class: This, ns: Runtime, asm: Unity.VisualScripting.Ecs}
+      data:
+        ThisPort:
+          Port:
+            Index: 8
+    0000000D:
+      type: {class: BooleanConstant, ns: UnityEditor.GraphToolsFoundation.Overdrive.BasicModel, asm: Unity.GraphTools.Foundation.Overdrive.Editor}
+      data:
+        m_Value: 0
+    0000000E:
+      type: {class: If, ns: Runtime, asm: Unity.VisualScripting.Ecs}
+      data:
+        Input:
+          Port:
+            Index: 9
+        Condition:
+          Port:
+            Index: 10
+        IfTrue:
+          Port:
+            Index: 11
+        IfFalse:
+          Port:
+            Index: 12
+    0000000F:
+      type: {class: , ns: , asm: }
+--- !u!114 &7416378070971015005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d133638b8a4a708ab07e8047ecd0c8, type: 3}
+  m_Name: GuyMoveToSystem Runtime Graph
+  m_EditorClassIdentifier: 
+  Definition:
+    id: 0
+  HashCode: 3474933853
+  references:
+    version: 1
+    00000000:
+      type: {class: GraphDefinition, ns: Runtime, asm: Unity.VisualScripting.Ecs}
+      data:
+        NodeTable:
+        - id: 1
+        - id: 2
+        - id: 3
+        - id: 4
+        - id: 5
+        - id: 6
+        PortInfoTable:
+        - IsDataPort: 0
+          IsOutputPort: 0
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 0
+          PortName: NULL
+        - IsDataPort: 1
+          IsOutputPort: 0
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 1
+          PortName: GameObject
+        - IsDataPort: 1
+          IsOutputPort: 1
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 1
+          PortName: ComponentData
+        - IsDataPort: 1
+          IsOutputPort: 1
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 1
+          PortName: ComponentData
+        - IsDataPort: 0
+          IsOutputPort: 0
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 2
+          PortName: Set
+        - IsDataPort: 0
+          IsOutputPort: 1
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 2
+          PortName: OnSet
+        - IsDataPort: 1
+          IsOutputPort: 0
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 2
+          PortName: GameObject
+        - IsDataPort: 1
+          IsOutputPort: 0
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 2
+          PortName: ComponentData
+        - IsDataPort: 1
+          IsOutputPort: 1
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 3
+          PortName: ThisPort
+        - IsDataPort: 0
+          IsOutputPort: 0
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 4
+          PortName: Input
+        - IsDataPort: 1
+          IsOutputPort: 0
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 4
+          PortName: Condition
+        - IsDataPort: 0
+          IsOutputPort: 1
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 4
+          PortName: IfTrue
+        - IsDataPort: 0
+          IsOutputPort: 1
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 4
+          PortName: IfFalse
+        - IsDataPort: 0
+          IsOutputPort: 0
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 5
+          PortName: Input
+        - IsDataPort: 0
+          IsOutputPort: 1
+          DataIndex: 0
+          NodeId:
+            m_NodeIndex: 6
+          PortName: Output
+        DataPortTable:
+        - m_NodeIndex: 0
+        - m_NodeIndex: 0
+        - m_NodeIndex: 0
+        - m_NodeIndex: 0
+        TriggerTable: 00000000
+        VariableInitValues: []
+        Strings: []
+        InputTriggers:
+        - NodeId:
+            m_NodeIndex: 6
+          Name: input_trigger
+        OutputTriggers:
+        - NodeId:
+            m_NodeIndex: 5
+          Name: output_trigger
+        SubgraphReferences: []
+        ComponentFields:
+        - DeclaringTypeHash: 5765262605763603146
+          FieldValueType: 5
+          Offset: 0
+          Storage: 0
+          Attributes: 
+        - DeclaringTypeHash: 5765262605763603146
+          FieldValueType: 3
+          Offset: 12
+          Storage: 0
+          Attributes: 
+        - DeclaringTypeHash: 11830366659655493054
+          FieldValueType: 5
+          Offset: 0
+          Storage: 0
+          Attributes: 
+        EventFields: []
+        Variables: []
+        Inputs:
+          StartIndex: 0
+          Count: 0
+        Outputs:
+          StartIndex: 0
+          Count: 0
+        ContainsEventReceiver: 0
+    00000001:
+      type: {class: GetComponent, ns: Runtime, asm: Unity.VisualScripting.Ecs}
+      data:
+        GameObject:
+          Port:
+            Index: 1
+        m_ComponentType:
+          TypeHash: 5765262605763603146
+        ComponentData:
+          Port:
+            Index: 2
+          DataCount: 2
+    00000002:
+      type: {class: SetComponent, ns: Runtime, asm: Unity.VisualScripting.Ecs}
+      data:
+        Set:
+          Port:
+            Index: 4
+        OnSet:
+          Port:
+            Index: 5
+        GameObject:
+          Port:
+            Index: 6
+        m_ComponentType:
+          TypeHash: 11830366659655493054
+        ComponentData:
+          Port:
+            Index: 7
+          DataCount: 1
+    00000003:
+      type: {class: This, ns: Runtime, asm: Unity.VisualScripting.Ecs}
+      data:
+        ThisPort:
+          Port:
+            Index: 8
+    00000004:
+      type: {class: If, ns: Runtime, asm: Unity.VisualScripting.Ecs}
+      data:
+        Input:
+          Port:
+            Index: 9
+        Condition:
+          Port:
+            Index: 10
+        IfTrue:
+          Port:
+            Index: 11
+        IfFalse:
+          Port:
+            Index: 12
+    00000005:
+      type: {class: GraphTriggerOutput, ns: Runtime, asm: Unity.VisualScripting.Ecs}
+      data:
+        Input:
+          Port:
+            Index: 13
+        OutputIndex: 0
+    00000006:
+      type: {class: GraphTriggerInput, ns: Runtime, asm: Unity.VisualScripting.Ecs}
+      data:
+        Output:
+          Port:
+            Index: 14

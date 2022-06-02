@@ -7,7 +7,7 @@ using UnityEngine;
 namespace AAAPE.DOTS {
 
     [UpdateInGroup(typeof(InitializationSystemGroup))]
-    public class GameStateSystem : SystemBase {
+    public partial class GameStateSystem : SystemBase {
         public enum TaskAction {
             ADD = 0,
             REMOVE = 1,

@@ -4,7 +4,7 @@ using System;
 
 namespace AAAPE.DOTS
 {
-    public abstract class EcsSystem : SystemBase
+    public abstract partial class EcsSystem : SystemBase
     {
         protected override void OnCreate()
         {

@@ -16,6 +16,8 @@ namespace AAAPE.DOTS.Demo {
 
         public Text text;
 
+        private Entity entityPrefab;
+
         private bool isAddOnePerFrame = false;
 
         public void ToggleOnePerFrame() {
@@ -28,10 +30,19 @@ namespace AAAPE.DOTS.Demo {
             }            
         }
 
+        public void Start() {
+            base.Start();
+
+            entityPrefab = GameObjectConversionUtility.ConvertGameObjectHierarchy(prefab, this.settings);
+        }
+
         public void Spawn(int Amount) {
             Unity.Mathematics.Random random = new Unity.Mathematics.Random( (uint)new System.Random().Next());
             for(int i = 0; i < Amount; i++) {
-                Entity entity = GameObjectConversionUtility.ConvertGameObjectHierarchy(prefab, this.settings);
+                Debug.Log("Add one");
+                
+                Entity entity = manager.Instantiate(entityPrefab);
+
                 manager.AddComponentData<Translation>(entity, new Translation{
                     Value = new float3(random.NextFloat(0,800f), 0, random.NextFloat(0,800f))
                 });
@@ -40,7 +51,6 @@ namespace AAAPE.DOTS.Demo {
                     manager.SetComponentData<Guy>(entity, new Guy{state = new GuyState(GuyStates.STOP)});
                 }
 
-                manager.Instantiate(entity);
                 AmountUnits ++;
                 this.text.text = AmountUnits.ToString() + " Units";
             }

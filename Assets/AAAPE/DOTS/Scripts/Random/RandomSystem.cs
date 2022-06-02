@@ -5,7 +5,7 @@ using Unity.Jobs.LowLevel.Unsafe;
 namespace AAAPE.DOTS
 {
     [UpdateInGroup(typeof(InitializationSystemGroup))]
-    public class RandomSystem : SystemBase
+    public partial class RandomSystem : SystemBase
     {
         public NativeArray<Unity.Mathematics.Random> Randoms { get; private set; }
         protected override void OnCreate()

@@ -4,7 +4,7 @@ using Unity.Collections;
 
 namespace AAAPE.DOTS
 {
-    public class UpdateStatefulComponentSystem<TEntity, TState, TEnum> : SystemBase
+    public partial class UpdateStatefulComponentSystem<TEntity, TState, TEnum> : SystemBase
         where TEntity : struct, StatefulComponent<TState, TEnum>
         where TState : struct, State<TEnum>
         where TEnum : System.Enum

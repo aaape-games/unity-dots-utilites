@@ -1,7 +1,12 @@
 {
     "name": "AAAPE.DOTS.Editor",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "AAAPE.DOTS.Runtime",
+        "Unity.GraphTools.Foundation.Editor",
+        "Unity.GraphTools.Foundation",
+        ""
+    ],
     "includePlatforms": [
         "Editor"
     ],

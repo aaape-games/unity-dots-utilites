@@ -3,7 +3,7 @@ using System;
 using Unity.Collections;
 
 namespace AAAPE.DOTS {
-    public class InitStatefulComponentSystem<TEntity, TState, TEnum> : SystemBase 
+    public partial class InitStatefulComponentSystem<TEntity, TState, TEnum> : SystemBase 
         where TEntity: struct, StatefulComponent<TState,TEnum>
         where TState: struct, State<TEnum> 
         where TEnum : System.Enum 
