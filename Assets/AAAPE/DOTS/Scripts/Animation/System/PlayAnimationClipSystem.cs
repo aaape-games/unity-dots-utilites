@@ -11,7 +11,6 @@ namespace AAAPE.DOTS {
         {
             Entities
                 .ForEach( (AnimatorProxyAuthoring animator, in PlayAnimationClip clip) => {
-                    Debug.Log("animate");
                     animator.Animator.Play(clip.clip.ToString());
                 }).WithoutBurst().Run();
         }

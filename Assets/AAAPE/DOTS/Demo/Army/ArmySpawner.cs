@@ -39,7 +39,6 @@ namespace AAAPE.DOTS.Demo {
         public void Spawn(int Amount) {
             Unity.Mathematics.Random random = new Unity.Mathematics.Random( (uint)new System.Random().Next());
             for(int i = 0; i < Amount; i++) {
-                Debug.Log("Add one");
                 
                 Entity entity = manager.Instantiate(entityPrefab);
 

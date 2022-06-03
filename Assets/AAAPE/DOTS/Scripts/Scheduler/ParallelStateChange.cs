@@ -8,10 +8,12 @@ namespace AAAPE.DOTS
     {
         public TState state;
         public Entity entity;
+        public int sortKey;
 
-        public StateChangeAction(TState state, Entity entity) {
+        public StateChangeAction(TState state, int sortKey, Entity entity) {
             this.entity = entity;
             this.state = state;
+            this.sortKey = sortKey;
         }
     }
     public struct ParallelStateChange<TState, TEnum> where TState : struct, State<TEnum> where TEnum : System.Enum

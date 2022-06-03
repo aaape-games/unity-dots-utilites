@@ -16,35 +16,33 @@ namespace AAAPE.DOTS.Demo
         {
             float deltaTime = Time.DeltaTime;
 
-            //without burst (be sure to really not use burst)
-            //EndSimulationScheduler scheduler = new EndSimulationScheduler(Dependency);
-            //ParallelStateChange<GuyState, GuyStates>.WithoutBurst writer = new ParallelStateChange<GuyState, GuyStates>.WithoutBurst(scheduler.ScheduleParallel());
-
-            NativeQueue<StateChangeAction<GuyState, GuyStates>> queue = new NativeQueue<StateChangeAction<GuyState, GuyStates>>(Allocator.TempJob);
-            NativeQueue<StateChangeAction<GuyState, GuyStates>>.ParallelWriter writer = queue.AsParallelWriter();
+             
+            EndSimulationScheduler scheduler  = new EndSimulationScheduler(Dependency);
+            EntityCommandBuffer.ParallelWriter writer = scheduler.ScheduleParallel();
 
             Dependency = Entities
                 .WithAll<Guy>()
                 // here you can set to only run action on components with state x
                 .WithSharedComponentFilter(new GuyState { Value = GuyStates.WALKING })
 
-                .ForEach((Entity e, ref Translation translation, ref Rotation rotation, in MoveTo moveTo) =>
+                .ForEach((int entityInQueryIndex, Entity entity, ref Translation translation, ref Rotation rotation, in MoveTo moveTo) =>
                 {
                     float3 toDestination = moveTo.Destination2D(translation.Value);
                     if (moveTo.Reached(translation.Value))
                     {
-                        writer.Enqueue(GuyState.Action(GuyStates.IDLE, e));
+                        
+                        writer.AddSharedComponent<GuyState>(entityInQueryIndex, entity, new GuyState(GuyStates.IDLE));
                         return;
                     }
 
 
                     float3 delta = math.normalize(toDestination) * deltaTime * moveTo.Speed;
                     translation.Value = math.length(delta) < math.length(toDestination) ? translation.Value + delta : moveTo.Position;
-
-                    //rotation.Value = quaternion.LookRotation(toDestination, new float3(0, 1, 0));
+                    rotation.Value = quaternion.LookRotation(toDestination, new float3(0, 1, 0));
                 })
                 .ScheduleParallel(Dependency)
-                .WithStateChange(queue, EntityManager);
+                .WithScheduler(scheduler);
+
         }
     }
 }

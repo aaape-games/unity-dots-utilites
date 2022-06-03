@@ -3,7 +3,7 @@ using System;
 
 namespace AAAPE.DOTS
 {
-    public interface State<T> : ISharedComponentData where T: System.Enum
+    public interface State<TEnum> : ISharedComponentData where TEnum: System.Enum
     {
     }
 }

@@ -2,7 +2,6 @@ using Unity.Entities;
 using UnityEngine;
 
 namespace AAAPE.DOTS.Demo {
-    public struct LevelStartedFlag: IComponentData{ }
     public struct NoGravityFlag: IComponentData{ }
 
     

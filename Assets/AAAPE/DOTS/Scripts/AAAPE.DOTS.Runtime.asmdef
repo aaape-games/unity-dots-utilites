@@ -9,7 +9,8 @@
         "Unity.Collections",
         "Unity.Mathematics",
         "Unity.Transforms",
-        "Unity.Transforms.Hybrid"
+        "Unity.Transforms.Hybrid",
+        "Unity.Rendering.Hybrid"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

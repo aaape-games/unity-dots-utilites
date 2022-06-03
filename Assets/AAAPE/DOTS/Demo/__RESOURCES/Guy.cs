@@ -1,5 +1,5 @@
 using Unity.Entities;
-
+using Unity.Collections;
 namespace AAAPE.DOTS.Demo {
 
     [GenerateAuthoringComponent]
@@ -16,6 +16,7 @@ namespace AAAPE.DOTS.Demo {
         public GuyState(GuyStates state) {
             this.Value = state;
         }
+
 
         #region overriding Equals for EVEN FASTER comparison in query filtering
                 public override bool Equals(object obj)
@@ -35,9 +36,14 @@ namespace AAAPE.DOTS.Demo {
 
         #endregion
 
-        public static StateChangeAction<GuyState, GuyStates> Action (GuyStates stateValue, Entity e) {
-            return new StateChangeAction<GuyState, GuyStates>(new GuyState{Value=stateValue}, e);
+        public static StateChangeAction<GuyState, GuyStates> Action (GuyStates stateValue, int sortKey, Entity e) {
+            return new StateChangeAction<GuyState, GuyStates>(new GuyState{Value=stateValue}, sortKey, e);
         }
+
+        public static NativeQueue<StateChangeAction<GuyState, GuyStates>> InitStateChange() {
+            return new NativeQueue<StateChangeAction<GuyState, GuyStates>>(Allocator.TempJob);
+        }
+
     }
     
     public enum GuyStates {

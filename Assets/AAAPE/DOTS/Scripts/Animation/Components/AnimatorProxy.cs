@@ -1,6 +1,6 @@
 using Unity.Entities;
-using Unity.Mathematics;
 using UnityEngine;
+using Unity.Rendering;
 
 namespace AAAPE.DOTS
 {
@@ -24,7 +24,7 @@ namespace AAAPE.DOTS
         public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
         {
             // create a real gameobject with animator
-            GameObject go = new GameObject(this.gameObject.name + "AnimatorProxyGameObject");
+            GameObject go = new GameObject(this.gameObject.name + "_AnimatorProxyGameObject");
             go.AddComponent<Animator>();
             go.AddComponent<MeshRenderer>();
             go.AddComponent<MeshFilter>();
@@ -40,7 +40,7 @@ namespace AAAPE.DOTS
 
             if (DisableEcsMesh)
             {
-                dstManager.RemoveComponent<MeshRenderer>(entity);
+                dstManager.RemoveComponent<RenderMesh>(entity);
             }
 
             dstManager.AddComponentObject(entity, new AnimatorProxyAuthoring
