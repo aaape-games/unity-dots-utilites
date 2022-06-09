@@ -428,9 +428,6 @@ MonoBehaviour:
   m_Script: {fileID: -1465209106, guid: c8d0ad23af520fe46aabe2b1fecf6462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"collection":{"$content":[],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
 --- !u!4 &839141063
 Transform:
   m_ObjectHideFlags: 0
@@ -460,14 +457,6 @@ PrefabInstance:
     - target: {fileID: 3088245020687892532, guid: dcd015aef11f5499489aba5a7f3b5bb6, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3088245020687892532, guid: dcd015aef11f5499489aba5a7f3b5bb6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3088245020687892532, guid: dcd015aef11f5499489aba5a7f3b5bb6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3088245020687892532, guid: dcd015aef11f5499489aba5a7f3b5bb6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -830,5 +819,9 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e577e3515f04c472b8c4f4b85e250b98, type: 2}
+    - target: {fileID: 8267202866792737266, guid: dcd015aef11f5499489aba5a7f3b5bb6, type: 3}
+      propertyPath: clip
+      value: Beam
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcd015aef11f5499489aba5a7f3b5bb6, type: 3}

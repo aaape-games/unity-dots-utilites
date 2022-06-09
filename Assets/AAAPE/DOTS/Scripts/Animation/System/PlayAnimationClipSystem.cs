@@ -6,11 +6,11 @@ using UnityEngine;
 
 namespace AAAPE.DOTS {
     [AlwaysUpdateSystem]
-    public class PlayAnimationClipSystem : SystemBase {
+    public class PlayOneShotAnimationClipSystem : SystemBase {
         protected override void OnUpdate()
         {
             Entities
-                .ForEach( (AnimatorProxyAuthoring animator, in PlayAnimationClip clip) => {
+                .ForEach((Entity entity, AnimatorProxy animator, in PlayAnimationClip clip) => {
                     animator.Animator.Play(clip.clip.ToString());
                 }).WithoutBurst().Run();
         }

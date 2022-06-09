@@ -15,8 +15,10 @@ GameObject:
   - component: {fileID: 7806998213125919702}
   - component: {fileID: 7647188786302673074}
   - component: {fileID: 2130916442}
-  - component: {fileID: 2130916444}
-  - component: {fileID: 964951018}
+  - component: {fileID: 2662814780176012759}
+  - component: {fileID: 6364500280857709322}
+  - component: {fileID: 7542352925034795369}
+  - component: {fileID: 8267202866792737266}
   m_Layer: 0
   m_Name: Guy
   m_TagString: Untagged
@@ -157,7 +159,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2130916444
+--- !u!114 &2662814780176012759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,14 +168,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3088245020687892535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 028cbccb4d8624ca79217d2633d2d46b, type: 3}
+  m_Script: {fileID: 11500000, guid: 13f1ce15916d54e678f883ac94e9207a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2130916442}
-  meshRenderer: {fileID: 7647188786302673074}
-  DisableEcsMesh: 1
-  meshFilter: {fileID: 7806998213125919702}
---- !u!114 &964951018
+  proxy: {fileID: 0}
+  hasProxyComponents: 1
+--- !u!114 &6364500280857709322
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +182,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 3088245020687892535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea7d7495833204790ba1d3a8755397f8, type: 3}
+  m_Script: {fileID: 11500000, guid: beb391f9394524c248873fea73e672ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConversionMode: 0
+  proxiedSelf: {fileID: 0}
+--- !u!114 &7542352925034795369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3088245020687892535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e07e871a412542a9b971bb6620e1755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  proxiedSelf: {fileID: 0}
+  RemoveEntityMesh: 1
+--- !u!114 &8267202866792737266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3088245020687892535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89e313f82f3e41cbb5b5332f800296b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: 
