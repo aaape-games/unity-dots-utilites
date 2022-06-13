@@ -35,19 +35,5 @@ namespace AAAPE.DOTS
             return handle;
         }
 
-        public static JobHandle WithStateChange<TState, TEnum>(this JobHandle handle, NativeQueue<StateChangeAction<TState, TEnum>> stateChangeQueue)  where TState: struct, State<TEnum> where TEnum: System.Enum {
-            EndSimulationScheduler scheduler = new EndSimulationScheduler(handle);
-            EntityCommandBuffer.ParallelWriter writer = scheduler.ScheduleParallel();
-
-
-
-            while(stateChangeQueue.TryDequeue(out StateChangeAction<TState, TEnum> action)) {
-                writer.SetSharedComponent<TState>(action.sortKey, action.entity, action.state);
-            }
-
-            stateChangeQueue.Dispose();
-
-            return handle;
-        }
     }
 }

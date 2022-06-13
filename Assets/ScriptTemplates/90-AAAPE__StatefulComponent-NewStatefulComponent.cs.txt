@@ -41,10 +41,6 @@ public struct #SCRIPTNAME#State: State<#SCRIPTNAME#States>{
     }
 
 #endregion
-
-    public static StateChangeAction<#SCRIPTNAME#State, #SCRIPTNAME#States> Action (#SCRIPTNAME#States stateValue, int sortKey, Entity e) {
-        return new StateChangeAction<#SCRIPTNAME#State, #SCRIPTNAME#States>(new #SCRIPTNAME#State{Value=stateValue}, sortKey, e);
-    }
 }
 
 

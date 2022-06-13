@@ -35,15 +35,6 @@ namespace AAAPE.DOTS.Demo {
                 }
 
         #endregion
-
-        public static StateChangeAction<GuyState, GuyStates> Action (GuyStates stateValue, int sortKey, Entity e) {
-            return new StateChangeAction<GuyState, GuyStates>(new GuyState{Value=stateValue}, sortKey, e);
-        }
-
-        public static NativeQueue<StateChangeAction<GuyState, GuyStates>> InitStateChange() {
-            return new NativeQueue<StateChangeAction<GuyState, GuyStates>>(Allocator.TempJob);
-        }
-
     }
     
     public enum GuyStates {
