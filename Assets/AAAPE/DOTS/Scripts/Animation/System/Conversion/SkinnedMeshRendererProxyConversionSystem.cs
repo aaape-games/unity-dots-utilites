@@ -1,15 +1,10 @@
 using Unity.Entities;
 using UnityEngine;
-using Unity.Transforms;
-using Unity.Collections;
-using Unity.Rendering;
 
 namespace AAAPE.DOTS
 {
-
     [UpdateInGroup(typeof(GameObjectBeforeConversionGroup))]
     [UpdateAfter(typeof(GameObjectProxyConversionSystem))]
-    [UpdateBefore(typeof(SkinnedMeshRendererConversion))]
     public class SkinnedMeshRendererProxyConversionSystem : GameObjectConversionSystem
     {
         protected override void OnUpdate()
@@ -22,7 +17,8 @@ namespace AAAPE.DOTS
                     SkinnedMeshRenderer = input.GetProxiedComponent<SkinnedMeshRenderer>()
                 });
 
-                if(input.RemoveEntityMesh) {
+                if (input.RemoveEntityMesh)
+                {
                     EntityManager.RemoveComponent<SkinnedMeshRenderer>(newEntity);
                 }
             });

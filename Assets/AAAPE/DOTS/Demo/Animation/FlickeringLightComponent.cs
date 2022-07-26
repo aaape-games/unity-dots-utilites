@@ -13,18 +13,18 @@ namespace AAAPE.DOTS.Demo
 
         public int smooth;
 
-        private int lastFrame;
+        [HideInInspector] public int lastFrame;
 
-        public bool shouldSet() {
-
-            if(lastFrame >= smooth) {
+        public bool shouldSet()
+        {
+            if (lastFrame >= smooth)
+            {
                 lastFrame = 0;
                 return true;
             }
 
-            lastFrame ++;
+            lastFrame++;
             return false;
         }
     }
-
 }

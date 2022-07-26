@@ -17,9 +17,7 @@ namespace AAAPE.DOTS
                         ComponentType.ReadOnly(((WithGameFlagAttribute)attr).Flag)
                     ));
                 }
-
             }
         }
-
     }
 }

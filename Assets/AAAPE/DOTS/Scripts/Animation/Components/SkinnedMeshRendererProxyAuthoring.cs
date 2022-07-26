@@ -5,8 +5,8 @@ using Unity.Entities;
 
 namespace AAAPE.DOTS
 {
-
-    public class SkinnedMeshRendererProxy: IComponentData {
+    public class SkinnedMeshRendererProxy : IComponentData
+    {
         public SkinnedMeshRenderer SkinnedMeshRenderer;
     }
 

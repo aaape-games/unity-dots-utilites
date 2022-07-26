@@ -6,8 +6,8 @@ using Unity.Mathematics;
 using Unity.Entities;
 using UnityEngine.UI;
 
-namespace AAAPE.DOTS.Demo {
-
+namespace AAAPE.DOTS.Demo
+{
     public class ArmySpawner : HybridBehaviour
     {
         public GameObject prefab;
@@ -20,41 +20,46 @@ namespace AAAPE.DOTS.Demo {
 
         private bool isAddOnePerFrame = false;
 
-        public void ToggleOnePerFrame() {
+        public void ToggleOnePerFrame()
+        {
             isAddOnePerFrame = !isAddOnePerFrame;
         }
 
-        public void Update() {
-            if(isAddOnePerFrame) {
+        public void Update()
+        {
+            if (isAddOnePerFrame)
+            {
                 Spawn(10);
-            }            
+            }
         }
 
-        public void Start() {
+        public void Start()
+        {
             base.Start();
 
             entityPrefab = GameObjectConversionUtility.ConvertGameObjectHierarchy(prefab, this.settings);
         }
 
-        public void Spawn(int Amount) {
-            Unity.Mathematics.Random random = new Unity.Mathematics.Random( (uint)new System.Random().Next());
-            for(int i = 0; i < Amount; i++) {
-                
+        public void Spawn(int Amount)
+        {
+            Unity.Mathematics.Random random = new Unity.Mathematics.Random((uint)new System.Random().Next());
+            for (int i = 0; i < Amount; i++)
+            {
                 Entity entity = manager.Instantiate(entityPrefab);
 
-                manager.AddComponentData<Translation>(entity, new Translation{
-                    Value = new float3(random.NextFloat(0,800f), 0, random.NextFloat(0,800f))
+                manager.AddComponentData<Translation>(entity, new Translation
+                {
+                    Value = new float3(random.NextFloat(0, 800f), 0, random.NextFloat(0, 800f))
                 });
 
-                if(i % 2 == 0) {
-                    manager.SetComponentData<Guy>(entity, new Guy{state = new GuyState(GuyStates.STOP)});
+                if (i % 2 == 0)
+                {
+                    manager.SetComponentData<Guy>(entity, new Guy { state = new GuyState(GuyStates.STOP) });
                 }
 
-                AmountUnits ++;
+                AmountUnits++;
                 this.text.text = AmountUnits.ToString() + " Units";
             }
-           
         }
     }
-
 }

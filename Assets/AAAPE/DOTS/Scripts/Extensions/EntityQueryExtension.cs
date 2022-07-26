@@ -24,7 +24,8 @@ namespace AAAPE.DOTS
         }
 
 
-        public static EntityQuery WithSharedComponentFilter<T>(this EntityQuery query, T sharedData) where T : struct, ISharedComponentData
+        public static EntityQuery WithSharedComponentFilter<T>(this EntityQuery query, T sharedData)
+            where T : struct, ISharedComponentData
         {
             query.SetSharedComponentFilter(sharedData);
 

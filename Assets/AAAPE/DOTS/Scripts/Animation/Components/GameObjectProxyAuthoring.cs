@@ -9,11 +9,10 @@ namespace AAAPE.DOTS
         public GameObject GameObject;
     }
 
-    
+
     public class GameObjectProxyAuthoring : MonoBehaviour
     {
-        [HideInInspector]
-        public GameObject proxy;
+        [HideInInspector] public GameObject proxy;
 
         public bool hasProxyComponents;
     }

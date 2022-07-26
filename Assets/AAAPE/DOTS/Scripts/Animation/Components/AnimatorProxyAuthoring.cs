@@ -4,12 +4,12 @@ using Unity.Rendering;
 
 namespace AAAPE.DOTS
 {
-    public class AnimatorProxy: IComponentProxy {
+    public class AnimatorProxy : IComponentProxy
+    {
         public Animator Animator;
     }
 
     public class AnimatorProxyAuthoring : ComponentProxyAuthoring
     {
-
     }
 }

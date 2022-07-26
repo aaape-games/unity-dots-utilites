@@ -2,13 +2,15 @@ using Unity.Entities;
 using System;
 using Unity.Collections;
 
-namespace AAAPE.DOTS {
-    public partial class InitStatefulComponentSystem<TEntity, TState, TEnum> : SystemBase 
-        where TEntity: struct, StatefulComponent<TState,TEnum>
-        where TState: struct, State<TEnum> 
-        where TEnum : System.Enum 
+namespace AAAPE.DOTS
+{
+    public partial class InitStatefulComponentSystem<TEntity, TState, TEnum> : SystemBase
+        where TEntity : struct, StatefulComponent<TState, TEnum>
+        where TState : struct, State<TEnum>
+        where TEnum : System.Enum
     {
-        protected void InitState(Entity e) {
+        protected void InitState(Entity e)
+        {
             EntityManager.AddSharedComponentData(e, EntityManager.GetComponentData<TEntity>(e).State);
         }
 
@@ -18,12 +20,14 @@ namespace AAAPE.DOTS {
             EndSimulationScheduler schedule = new EndSimulationScheduler(Dependency);
             EntityCommandBuffer.ParallelWriter parallel = schedule.ScheduleParallel();
 
-            NativeArray<Entity> entities = GetEntityQuery(new EntityQueryDesc{
-                None = new ComponentType[] {typeof(TState)},
-                All = new ComponentType[] {ComponentType.ReadOnly<TEntity>()}
+            NativeArray<Entity> entities = GetEntityQuery(new EntityQueryDesc
+            {
+                None = new ComponentType[] { typeof(TState) },
+                All = new ComponentType[] { ComponentType.ReadOnly<TEntity>() }
             }).ToEntityArray(Allocator.Temp);
 
-            foreach(Entity e in entities) {
+            foreach (Entity e in entities)
+            {
                 InitState(e);
             }
         }

@@ -1,11 +1,11 @@
 using Unity.Entities;
-using System; 
+using System;
 
 namespace AAAPE.DOTS
 {
-    public interface StatefulComponent<TState, TEnum> : IComponentData where TState: struct, State<TEnum> where TEnum : System.Enum {
-        public TState State{
-            get; set;
-        }
+    public interface StatefulComponent<TState, TEnum> : IComponentData
+        where TState : struct, State<TEnum> where TEnum : System.Enum
+    {
+        public TState State { get; set; }
     }
 }

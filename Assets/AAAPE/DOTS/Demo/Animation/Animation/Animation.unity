@@ -3283,6 +3283,7 @@ MonoBehaviour:
     x: 15
     y: 20
   smooth: 3
+  lastFrame: 0
 --- !u!4 &1893587000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fb32fe6c954bb4419bd15cc347a28973, type: 3}

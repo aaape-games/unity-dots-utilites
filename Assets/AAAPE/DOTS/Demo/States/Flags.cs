@@ -1,18 +1,27 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace AAAPE.DOTS.Demo {
-    public struct NoGravityFlag: IComponentData{ }
+namespace AAAPE.DOTS.Demo
+{
+    public struct NoGravityFlag : IComponentData
+    {
+    }
 
-    
-    public class Flags : MonoBehaviour{
-        public void SetStarted() {
+
+    public class Flags : MonoBehaviour
+    {
+        public void SetStarted()
+        {
             GameState.SetFlag<LevelStartedFlag>();
         }
-         public void UnSetStarted() {
+
+        public void UnSetStarted()
+        {
             GameState.UnsetFlag<LevelStartedFlag>();
         }
-        public void ToggleGravity() {      
+
+        public void ToggleGravity()
+        {
             GameState.ToggleFlag<NoGravityFlag>();
         }
     }

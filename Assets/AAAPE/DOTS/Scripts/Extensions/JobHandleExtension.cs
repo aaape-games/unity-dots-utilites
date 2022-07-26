@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace AAAPE.DOTS
 {
-
     public static class JobHandleExtension
     {
         public static JobHandle WithContainer<T>(this JobHandle handle, NativeArray<T> container) where T : struct
@@ -16,7 +15,8 @@ namespace AAAPE.DOTS
             return handle;
         }
 
-        public static JobHandle WithContainers<T>(this JobHandle handle, params NativeArray<T>[] container) where T : struct
+        public static JobHandle WithContainers<T>(this JobHandle handle, params NativeArray<T>[] container)
+            where T : struct
         {
             handle.Complete();
             foreach (NativeArray<T> array in container)
@@ -28,12 +28,12 @@ namespace AAAPE.DOTS
         }
 
 
-        public static JobHandle WithScheduler<T>(this JobHandle handle, Scheduler<T> scheduler) where T: EntityCommandBufferSystem
+        public static JobHandle WithScheduler<T>(this JobHandle handle, Scheduler<T> scheduler)
+            where T : EntityCommandBufferSystem
         {
             scheduler.AddJobHandle(handle);
 
             return handle;
         }
-
     }
 }

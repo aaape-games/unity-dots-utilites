@@ -17,6 +17,7 @@ namespace AAAPE.DOTS
             {
                 system = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<GameStateSystem>();
             }
+
             return system;
         }
 
@@ -30,16 +31,19 @@ namespace AAAPE.DOTS
             systemBase.RequireForUpdate(query);
         }
 
-        public static void SetFlag<T>() where T : struct, IComponentData {
+        public static void SetFlag<T>() where T : struct, IComponentData
+        {
             getSystem().AddComponent<T>();
-        }       
-         
+        }
 
-        public static void UnsetFlag<T>() where T : struct, IComponentData {
+
+        public static void UnsetFlag<T>() where T : struct, IComponentData
+        {
             getSystem().RemoveComponent<T>();
-        }       
-         
-        public static void ToggleFlag<T>() where T : struct, IComponentData {
+        }
+
+        public static void ToggleFlag<T>() where T : struct, IComponentData
+        {
             getSystem().ToggleComponent<T>();
         }
     }

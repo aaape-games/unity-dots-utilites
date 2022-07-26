@@ -9,10 +9,10 @@ using UnityEngine;
 
 namespace AAAPE.DOTS.Demo
 {
-
-    public class FlickerLightSystem : SystemBase
+    public partial class FlickerLightSystem : SystemBase
     {
         private RandomSystem randomSystem;
+
         protected override void OnCreate()
         {
             this.randomSystem = World.GetOrCreateSystem<RandomSystem>();
@@ -22,15 +22,15 @@ namespace AAAPE.DOTS.Demo
         protected override void OnUpdate()
         {
             Entities
-            .ForEach((Light light, ref FlickeringLightComponent flicker) =>
-            {
-                if(flicker.shouldSet()) {
-                    // unity is using managed class light internally, so we are doing this on the main thread again
-                    light.intensity = UnityEngine.Random.Range(flicker.IntensityFromTo.x, flicker.IntensityFromTo.y);
-                }
-              
-            }).WithoutBurst().Run();
+                .ForEach((Light light, ref FlickeringLightComponent flicker) =>
+                {
+                    if (flicker.shouldSet())
+                    {
+                        // unity is using managed class light internally, so we are doing this on the main thread again
+                        light.intensity =
+                            UnityEngine.Random.Range(flicker.IntensityFromTo.x, flicker.IntensityFromTo.y);
+                    }
+                }).WithoutBurst().Run();
         }
     }
-
 }

@@ -5,8 +5,8 @@ using Unity.Entities;
 
 namespace AAAPE.DOTS
 {
-
-    public class MeshRendererProxy: IComponentData {
+    public class MeshRendererProxy : IComponentData
+    {
         public MeshRenderer MeshRenderer;
     }
 

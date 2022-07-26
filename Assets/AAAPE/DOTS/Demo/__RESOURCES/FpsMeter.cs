@@ -10,7 +10,7 @@ public class FpsMeter : MonoBehaviour
     private int frameCount = 0;
     private float nextUpdate = 0.0f;
     private float fps = 0.0f;
-    private int updateRate = 4;  // 4 updates per sec.
+    private int updateRate = 4; // 4 updates per sec.
 
     public void Start()
     {
@@ -29,6 +29,5 @@ public class FpsMeter : MonoBehaviour
 
             this.Text.text = "FPS: " + fps;
         }
-
     }
 }

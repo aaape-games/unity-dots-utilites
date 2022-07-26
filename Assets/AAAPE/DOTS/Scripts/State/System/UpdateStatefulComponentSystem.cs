@@ -22,14 +22,14 @@ namespace AAAPE.DOTS
             EntityCommandBuffer.ParallelWriter parallel = schedule.ScheduleParallel();
 
             NativeArray<Entity> entities = GetEntityQuery(new EntityQueryDesc
-            {
-                All = new ComponentType[] { ComponentType.ReadOnly<TEntity>(),  typeof(TState) }
-            })
-            .WithChangedVersionFilter<TEntity>()
-            .ToEntityArray(Allocator.Temp);
+                {
+                    All = new ComponentType[] { ComponentType.ReadOnly<TEntity>(), typeof(TState) }
+                })
+                .WithChangedVersionFilter<TEntity>()
+                .ToEntityArray(Allocator.Temp);
 
             foreach (Entity e in entities)
-            {   
+            {
                 UpdateState(e);
             }
         }

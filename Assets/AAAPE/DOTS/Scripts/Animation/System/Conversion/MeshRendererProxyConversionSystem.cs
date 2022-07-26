@@ -6,10 +6,8 @@ using Unity.Rendering;
 
 namespace AAAPE.DOTS
 {
-
     [UpdateInGroup(typeof(GameObjectBeforeConversionGroup))]
     [UpdateAfter(typeof(GameObjectProxyConversionSystem))]
-    [UpdateBefore(typeof(MeshRendererProxyConversionSystem))]
     public class MeshRendererProxyConversionSystem : GameObjectConversionSystem
     {
         protected override void OnUpdate()
@@ -23,7 +21,8 @@ namespace AAAPE.DOTS
                     MeshRenderer = input.GetProxiedComponent<MeshRenderer>()
                 });
 
-                if(input.RemoveEntityMesh) {
+                if (input.RemoveEntityMesh)
+                {
                     EntityManager.RemoveComponent<MeshRenderer>(entity);
                 }
             });

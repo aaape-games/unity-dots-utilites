@@ -4,17 +4,17 @@ using Unity.Rendering;
 
 namespace AAAPE.DOTS
 {
-    public interface IComponentProxy : IComponentData {
+    public interface IComponentProxy : IComponentData
+    {
     }
 
     public class ComponentProxyAuthoring : MonoBehaviour
     {
-        [HideInInspector]
-        public GameObject proxiedSelf;
+        [HideInInspector] public GameObject proxiedSelf;
 
-        public T GetProxiedComponent<T>() {
+        public T GetProxiedComponent<T>()
+        {
             return proxiedSelf.GetComponent<T>();
         }
     }
-
 }

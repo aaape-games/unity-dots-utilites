@@ -5,7 +5,7 @@ using Unity.Mathematics;
 namespace AAAPE.DOTS.Demo
 {
     [WithGameFlag(typeof(LevelStartedFlag))]
-    public class GuyRotateSystem : EcsSystem
+    public partial class GuyRotateSystem : EcsSystem
     {
         // this is only ran when the levelStartedFlag exists somewhere
         protected override void OnUpdate()

@@ -1,6 +1,9 @@
 using Unity.Entities;
-namespace AAAPE.DOTS {
 
+namespace AAAPE.DOTS
+{
     [GenerateAuthoringComponent]
-    public struct LevelStartedFlag: IComponentData{ }
+    public struct LevelStartedFlag : IComponentData
+    {
+    }
 }

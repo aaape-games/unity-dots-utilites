@@ -4,13 +4,16 @@ using Unity.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AAAPE.DOTS {
+namespace AAAPE.DOTS
+{
     [AlwaysUpdateSystem]
-    public class PlayOneShotAnimationClipSystem : SystemBase {
+    public partial class PlayOneShotAnimationClipSystem : SystemBase
+    {
         protected override void OnUpdate()
         {
             Entities
-                .ForEach((Entity entity, AnimatorProxy animator, in PlayAnimationClip clip) => {
+                .ForEach((Entity entity, AnimatorProxy animator, in PlayAnimationClip clip) =>
+                {
                     animator.Animator.Play(clip.clip.ToString());
                 }).WithoutBurst().Run();
         }

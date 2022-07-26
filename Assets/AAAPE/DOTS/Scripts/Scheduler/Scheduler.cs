@@ -1,36 +1,39 @@
 using Unity.Entities;
 using Unity.Jobs;
 
-namespace AAAPE.DOTS {
-
-    public abstract class Scheduler<T> where T: EntityCommandBufferSystem {
-
+namespace AAAPE.DOTS
+{
+    public abstract class Scheduler<T> where T : EntityCommandBufferSystem
+    {
         private EntityCommandBufferSystem bufferSystem;
         private EntityCommandBuffer buffer;
 
-        public Scheduler() {
+        public Scheduler()
+        {
             this.bufferSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<T>();
             this.buffer = this.bufferSystem.CreateCommandBuffer();
         }
-        
-        public Scheduler(JobHandle handle) {
+
+        public Scheduler(JobHandle handle)
+        {
             this.bufferSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<T>();
             this.buffer = this.bufferSystem.CreateCommandBuffer();
             this.bufferSystem.AddJobHandleForProducer(handle);
         }
 
-        public void AddJobHandle(JobHandle handle) {
+        public void AddJobHandle(JobHandle handle)
+        {
             this.bufferSystem.AddJobHandleForProducer(handle);
         }
-        
-        public EntityCommandBuffer Schedule() {
+
+        public EntityCommandBuffer Schedule()
+        {
             return this.buffer;
         }
 
-        public EntityCommandBuffer.ParallelWriter ScheduleParallel() {
+        public EntityCommandBuffer.ParallelWriter ScheduleParallel()
+        {
             return this.buffer.AsParallelWriter();
         }
-
-        
     }
 }
