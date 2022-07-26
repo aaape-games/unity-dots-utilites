@@ -7,7 +7,7 @@ namespace AAAPE.DOTS.Demo
 {
     // this is only ran when the NoGravityFlag exists somewhere
     [WithGameFlag(typeof(NoGravityFlag))]
-    public class GuyLiftSystem : EcsSystem
+    public partial class GuyLiftSystem : EcsSystem
     {
         protected override void OnUpdate()
         {

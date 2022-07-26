@@ -7,10 +7,10 @@ namespace AAAPE.DOTS
 {
     public struct PlayAnimationClip : IComponentData
     {
-        public FixedString64 clip;
+        public FixedString64Bytes clip;
 
         public PlayAnimationClip(string clip) {
-            this.clip = new FixedString64(clip);
+            this.clip = new FixedString64Bytes(clip);
         }
     }
 

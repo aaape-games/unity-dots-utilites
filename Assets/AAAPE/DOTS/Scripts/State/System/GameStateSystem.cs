@@ -13,6 +13,7 @@ namespace AAAPE.DOTS {
             REMOVE = 1,
             TOGGLE = 2
         }
+        
         public struct ComponentTask {
             public TaskAction Action;
             

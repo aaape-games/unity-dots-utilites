@@ -3,9 +3,7 @@
     "rootNamespace": "",
     "references": [
         "AAAPE.DOTS.Runtime",
-        "Unity.GraphTools.Foundation.Editor",
-        "Unity.GraphTools.Foundation",
-        ""
+        "Unity.Entities"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,15 +1,11 @@
 using Unity.Entities;
-using UnityEngine;
-using Unity.Transforms;
-using Unity.Collections;
 using Unity.Rendering;
+using UnityEngine;
 
 namespace AAAPE.DOTS
 {
-
     [UpdateInGroup(typeof(GameObjectBeforeConversionGroup))]
     [UpdateAfter(typeof(GameObjectProxyConversionSystem))]
-    [UpdateBefore(typeof(MeshRendererProxyConversionSystem))]
     public class MeshRendererProxyConversionSystem : GameObjectConversionSystem
     {
         protected override void OnUpdate()

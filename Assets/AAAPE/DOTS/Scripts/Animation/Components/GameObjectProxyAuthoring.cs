@@ -7,12 +7,13 @@ namespace AAAPE.DOTS
     public class GameObjectProxy : IComponentData
     {
         public GameObject GameObject;
+        
+        public bool isDestroyed = false;
     }
 
     
     public class GameObjectProxyAuthoring : MonoBehaviour
     {
-        [HideInInspector]
         public GameObject proxy;
 
         public bool hasProxyComponents;

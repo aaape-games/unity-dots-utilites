@@ -47,7 +47,7 @@ namespace AAAPE.DOTS.Demo {
                 });
 
                 if(i % 2 == 0) {
-                    manager.SetComponentData<Guy>(entity, new Guy{state = new GuyState(GuyStates.STOP)});
+                    manager.SetSharedComponentData(entity, GuyState.With(GuyStates.STOP));
                 }
 
                 AmountUnits ++;

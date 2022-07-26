@@ -10,7 +10,7 @@ using UnityEngine;
 namespace AAAPE.DOTS.Demo
 {
 
-    public class FlickerLightSystem : SystemBase
+    public partial class FlickerLightSystem : SystemBase
     {
         private RandomSystem randomSystem;
         protected override void OnCreate()

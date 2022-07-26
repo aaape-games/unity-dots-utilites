@@ -8,7 +8,7 @@ using AAAPE.DOTS;
 namespace AAAPE.DOTS.Demo
 {
     [WithGameFlag(typeof(LevelStartedFlag))]
-    public class FindRandomPositionSystem : SystemBase
+    public partial class FindRandomPositionSystem : SystemBase
     {
         private RandomSystem randomSystem;
         protected override void OnCreate()
@@ -31,7 +31,7 @@ namespace AAAPE.DOTS.Demo
                 .WithAll<Guy>()
 
                 .WithNativeDisableParallelForRestriction(randoms)
-                .WithSharedComponentFilter(new GuyState { Value = GuyStates.IDLE })
+                .WithSharedComponentFilter(GuyState.With(GuyStates.IDLE))
                 .ForEach((int entityInQueryIndex, Entity entity, int nativeThreadIndex, ref MoveTo moveTo, in Translation translation, in FindRandomPosition position) =>
                 {
                     Unity.Mathematics.Random random = randoms[nativeThreadIndex];
@@ -39,9 +39,8 @@ namespace AAAPE.DOTS.Demo
                         position.Min,
                         position.Max
                     );
-
-
-                    writer.AddSharedComponent<GuyState>(entityInQueryIndex, entity, new GuyState(GuyStates.WALKING));
+                    
+                    writer.AddStateTransition(entityInQueryIndex, entity, GuyState.With(GuyStates.WALKING));
                     randoms[nativeThreadIndex] = random;
                 })
                 .ScheduleParallel(Dependency)

@@ -1,0 +1,7 @@
+{
+  "name": "AAAPE DOTS",
+  "version": "0.0.51",
+  "dependencies": {
+    "https://github.com/hextantstudios/com.hextantstudios.utilities.git",
+  }
+} 

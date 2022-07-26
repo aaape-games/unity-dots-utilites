@@ -1,6 +1,6 @@
 {
     "name": "AAAPE.DOTS.Runtime",
-    "rootNamespace": "",
+    "rootNamespace": "AAAPE.DOTS",
     "references": [
         "Unity.Entities",
         "Unity.Entities.Hybrid",

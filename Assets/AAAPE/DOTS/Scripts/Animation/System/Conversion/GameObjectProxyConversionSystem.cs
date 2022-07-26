@@ -12,21 +12,26 @@ namespace AAAPE.DOTS
             Entities.ForEach((GameObjectProxyAuthoring input) =>
             {
                 Entity entity = GetPrimaryEntity(input);
-                GameObject proxy;
-                proxy = GameObject.Instantiate(input.gameObject);
-                proxy.name = input.gameObject.name + "_ProxyGameObject";
-
-                if(input.hasProxyComponents) {
-                    AddProxyRecursive(input.gameObject, proxy);
+                
+                if (input.proxy == null)
+                {
+                    input.proxy = GameObject.Instantiate(input.gameObject);
                 }
               
-                proxy.transform.position = input.transform.position;
-                proxy.transform.rotation = input.transform.rotation;
-                proxy.transform.localScale = input.transform.localScale;
+                input.proxy.AddComponent<ProxiedComponent>();
+                input.proxy.name = input.gameObject.name + "_ProxyGameObject";
+
+                if(input.hasProxyComponents) {
+                    AddProxyRecursive(input.gameObject, input.proxy);
+                }
+              
+                input.proxy.transform.position = input.transform.position;
+                input.proxy.transform.rotation = input.transform.rotation;
+                input.proxy.transform.localScale = input.transform.localScale;
 
                 DstEntityManager.AddComponentObject(entity, new GameObjectProxy
                 {
-                    GameObject = proxy
+                    GameObject = input.proxy
                 });
                 
             });

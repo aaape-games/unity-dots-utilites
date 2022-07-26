@@ -1,10 +1,8 @@
 using Unity.Entities;
 using AAAPE.DOTS;
 
-
-
 public enum #SCRIPTNAME#States {
-    IDLE = 0,
+    UNITITIALIZED = 0,
 }
 
 // you only need this when you are using a hybrid-renderer or creating entitys from prefabs
@@ -20,7 +18,7 @@ public struct #SCRIPTNAME# : StatefulComponent<#SCRIPTNAME#State, #SCRIPTNAME#St
 public struct #SCRIPTNAME#State: State<#SCRIPTNAME#States>{
     public #SCRIPTNAME#States Value;
 
-    public #SCRIPTNAME#State(#SCRIPTNAME#States stateValue) {
+    public static #SCRIPTNAME# With(#SCRIPTNAME#States stateValue) {
         this.Value = stateValue;
     }
 
@@ -39,7 +37,6 @@ public struct #SCRIPTNAME#State: State<#SCRIPTNAME#States>{
     {
         return Value.GetHashCode();
     }
-
 #endregion
 }
 

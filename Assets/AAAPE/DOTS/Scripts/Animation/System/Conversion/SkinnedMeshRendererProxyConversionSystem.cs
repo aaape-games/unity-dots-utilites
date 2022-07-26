@@ -9,7 +9,6 @@ namespace AAAPE.DOTS
 
     [UpdateInGroup(typeof(GameObjectBeforeConversionGroup))]
     [UpdateAfter(typeof(GameObjectProxyConversionSystem))]
-    [UpdateBefore(typeof(SkinnedMeshRendererConversion))]
     public class SkinnedMeshRendererProxyConversionSystem : GameObjectConversionSystem
     {
         protected override void OnUpdate()

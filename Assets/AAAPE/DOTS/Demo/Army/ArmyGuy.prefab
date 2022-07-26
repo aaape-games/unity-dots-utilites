@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3183910216694411513}
   - component: {fileID: 181323798482592315}
   - component: {fileID: 5213205841867069862}
+  - component: {fileID: 8511207161688060407}
   m_Layer: 0
   m_Name: ArmyGuy
   m_TagString: Untagged
@@ -47,8 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae81f0758a2af42e0adca1db3c5824a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state:
-    Value: 0
 --- !u!114 &3183910216694411513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +98,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConversionMode: 0
+--- !u!114 &8511207161688060407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183910216694411515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7c88ed4cb84226bae2fb2d00bf44b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptableState: {fileID: 11400000, guid: 8cb766fc5b6594fc0bf80a1acdc79475, type: 2}
 --- !u!1 &3183910218279315662
 GameObject:
   m_ObjectHideFlags: 0

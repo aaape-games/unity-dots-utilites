@@ -13,7 +13,7 @@ namespace AAAPE.DOTS.Demo
 
         public int smooth;
 
-        private int lastFrame;
+        public int lastFrame;
 
         public bool shouldSet() {
 
